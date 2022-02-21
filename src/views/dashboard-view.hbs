@@ -1,0 +1,13 @@
+{{> menu active="dashboard"}}
+
+<section class="section">
+    {{> list-placemarks}}
+    {{> add-placemark}}
+    {{>geolocation}}
+    <p>Your Current Location :</p>
+    <p>latitude  : <span id="latitude"></span>&deg;<br></p>
+    <p>longitude : <span id="longitude"></span>&deg;<br></p>
+    <br>
+    <img src="https://codinginfinite.com/wp-content/uploads/2019/05/MapSnapshot.jpg" width="1600"
+         height="900" />
+</section>
