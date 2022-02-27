@@ -6,7 +6,14 @@ export const placeMemStore = {
   async getAllPlaces() {
     return places;
   },
-
+  getPlaceLocation: async function () {
+    let locations = [];
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < places.length; i++) {
+      locations.push(places[i].lat, places[i].lng);
+    }
+    return locations;
+  },
   async addPlace(placemarkId, place) {
     place._id = v4();
     place.placemarkid = placemarkId;
@@ -36,8 +43,10 @@ export const placeMemStore = {
   },
 
   async updatePlace(place, updatedPlace) {
-    place.title = updatedPlace.title;
-    place.artist = updatedPlace.artist;
-    place.duration = updatedPlace.duration;
+    place.name = updatedPlace.name;
+    place.location = updatedPlace.location;
+    place.info = updatedPlace.info;
+    place.lat = updatedPlace.lat;
+    place.lng = updatedPlace.lng;
   },
 };

@@ -1,0 +1,31 @@
+{
+  "places": [
+    {
+      "name": "Chicago",
+      "location": "dolphins barn Dublin",
+      "info": "Fluffy pear",
+      "lat": "55",
+      "lng": "7",
+      "_id": "e4118d11-fca5-4944-9b1e-586c7f40da74",
+      "placemarkid": "d257b7a0-5bf2-480e-a484-7bff5a44b36b"
+    },
+    {
+      "name": "South East Ireland",
+      "location": "Wicklow Mountains",
+      "info": "Snow Lion",
+      "lat": "55.234",
+      "lng": "5.7566",
+      "_id": "acc3f80e-d41e-4bc0-b9ef-865e08c98d26",
+      "placemarkid": "4fadabf1-afd0-46b7-9496-f489991c5535"
+    },
+    {
+      "name": "North West China",
+      "location": "Mount Fujiamo",
+      "info": "Liger",
+      "lat": "60.7",
+      "lng": "10.225",
+      "_id": "29c8ae6a-ff4e-4cf6-b286-10e43ef62555",
+      "placemarkid": "4fadabf1-afd0-46b7-9496-f489991c5535"
+    }
+  ]
+}

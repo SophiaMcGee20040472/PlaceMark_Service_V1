@@ -3,7 +3,10 @@
     <tr>
         <th>PlaceMark</th>
         <th>Destination</th>
-        <th>Things we Should know</th>
+        <th>Species Spotted</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+
     </tr>
     </thead>
     <tbody>
@@ -17,6 +20,12 @@
             </td>
             <td>
                 {{info}}
+            </td>
+            <td>
+                {{lat}}
+            </td>
+            <td>
+                {{lng}}
             </td>
             <td>
                 <a href="/placemark/{{../placemark._id}}/deleteplace/{{_id}}" class="ui icon button">

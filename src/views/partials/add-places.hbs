@@ -1,17 +1,28 @@
 <form class="box" action="/placemark/{{placemark._id}}/addplace" method="POST">
     <label>Enter Place Details:</label>
+    <label><span style="padding-left:135px;"></span>Enter Destination:</label>
+    <label><span style="padding-left:135px;"></span>Enter Species Details:</label>
+    <label><span style="padding-left:107px;"></span>Enter Latitude:</label>
+    <label><span style="padding-left:98px;"></span>Enter Longitude:</label>
     <div class="field is-horizontal">
         <div class="field-body">
             <div class="field">
+
                 <input class="input" type="text" placeholder="Enter PlaceMark" name="name">
             </div>
             <div class="field">
                 <input class="input" type="text" placeholder="Enter Destination" name="location">
             </div>
             <div class="field">
-                <input class="input" type="text" placeholder="Enter Things we need to know" name="info">
+                <input class="input" type="text" placeholder="Species Spotted" name="info">
             </div>
         </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="0.000" name="lat">
+        </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="0.000" name="lng">
+        </div>
     </div>
-    <button class="button is-primary">Add Place</button>
+    <button class="button is-primary">Add PlaceMark of Interest</button>
 </form>

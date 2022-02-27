@@ -6,7 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "lint": "./node_modules/.bin/eslint . --ext .js"
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "test": "mocha --ui tdd test/**.js"
+  },
+  "engines": {
+    "node": "16.13.2"
   },
   "repository": {
     "type": "git",
@@ -22,10 +26,15 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.4",
     "@hapi/cookie": "^11.0.2",
     "@hapi/hapi": "^20.2.1",
     "@hapi/vision": "^6.1.0",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.0",
     "handlebars": "^4.7.7",
+    "joi": "^17.6.0",
+    "lowdb": "^3.0.0",
     "uuid": "^8.3.2"
   }
 }
