@@ -33,20 +33,7 @@ export const placeMarkController = {
       return h.redirect(`/placemark/${placemark._id}`);
     },
   },
-  // addPlace: {
-  //   handler: async function (request, h) {
-  //     const placemark = await db.placeMarkStore.getPlaceMarksById(request.params.id);
-  //     const newPlace = {
-  //       name: request.payload.name,
-  //       location: request.payload.location,
-  //       info: request.payload.info,
-  //       lat: request.payload.lat,
-  //       lng: request.payload.lng,
-  //     };
-  //     await db.placeStore.addPlace(placemark._id, newPlace);
-  //     return h.redirect(`/placemark/${placemark._id}`);
-  //   },
-  // },
+
   deletePlace: {
     handler: async function (request, h) {
       const placemark = await db.placeMarkStore.getPlaceMarksById(request.params.id);

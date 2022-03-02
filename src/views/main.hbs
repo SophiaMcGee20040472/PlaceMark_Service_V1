@@ -1,26 +1,152 @@
 {{> welcome-menu}}
 
-<section class="section">
-    <p> Sign up or Log in... </p>
-    <br><img src="https://cdn.picpng.com/location/location-map-pin-pinpoint-point-99496.png" width="500"
-             height="900" />
-    {{>geolocation}}
-    <br>
-    <p>Your Current latitude is: <span id="latitude"></span>&deg;<br></p>
-    <p>Your Current longitude is: <span id="longitude"></span>&deg;<br></p>
-    <br>
-    <h2>Sign Up and Log in to let us know what Places we should PlaceMark. This site is for Animal lovers everywhere who would love to try catch a glimpse <br>of Animals they have always wanted to see in places potentially near to them.</h2>
-    <p>Here are a few some members have caught on camera.</p>
-    <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9XnOjnrGURsgRa1kSmFuxvyR8ZkFgkRYLRQ&usqp=CAU" width="450"
-             height="900" />
-    <img src="https://en.bcdn.biz/images/emails_source/d64e1901-9261-472b-b130-d7aa11381bde.jpg" width="380"
-             height="900" />
-    <img src="https://i.insider.com/578cdd8688e4a725238b8896?width=750&format=jpeg&auto=webp" width="340"
-         height="900" />
-    <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJLtDIM7i5HY2rLJWHi7XTp_P1bdmfvEoS_g&usqp=CAU" width="370"
-             height="700" />
-    <img src="https://cdn.shopify.com/s/files/1/0006/0420/9215/articles/endangered_animals_clothing_800_1024x.jpg?v=1585545660" width="420"
-         height="900" />
-    <img src="https://i.natgeofe.com/n/722fcf1a-e085-401d-9c7b-c42400493b94/snowy-owl_thumb_4x3.JPG" width="370"
-         height="900" />
+<section class="section has-background-success-dark">
+        <article class="tile is-child notification has-background-black has-text-centered has-text-white-bis">
+            <article class="message is-warning ">
+                <div class="message-header">
+                    <p class="title">Sign Up and log in....</p>
+                </div>
+                <div class="message-body">
+                    <p class="subtitle">Sign Up and Log in to let us know what Places we should PlaceMark.<br>
+                        This site is for Animal lovers everywhere who would love to try catch a glimpse <br>of Animals they have always wanted to see in places potentially near to them.</p>
+                </div>
+            </article>
+                <div class="content">
+                    <div class="tile">
+                </div>
+                </div>
+            <div class="columns features">
+                <div class="column is-4 has-background-black">
+                    <div class="card is-shady">
+                        <div class="card-image has-text-centered">
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h4>Your Current Location</h4>
+                                <p><img src="https://cdn.picpng.com/location/location-map-pin-pinpoint-point-99496.png" width="200"
+                                        height="900"  alt=""/></p>
+                                {{>geolocation}}
+                                <br>
+                                <p>Your Current latitude is: <span id="latitude"></span>&deg;<br></p>
+                                <p>Your Current longitude is: <span id="longitude"></span>&deg;<br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4 has-background-black">
+                    <div class="card is-shady">
+                        <div class="card-image has-text-centered">
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h4>Locate your Animals</h4>
+                                <p>  <img src="https://img.freepik.com/free-vector/north-american-map-with-wildlife-animals_124507-3833.jpg" width="750"
+                                          height="900" alt=""/></p>
+                                <h4>Pin-Point where to find them </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4 has-background-black">
+                    <div class="card is-shady">
+                        <div class="card-image has-text-centered">
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h4> Some Animals Spotted </h4>
+                                <p><div class="content">
+                                <div class="tile">
+                                    <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9XnOjnrGURsgRa1kSmFuxvyR8ZkFgkRYLRQ&usqp=CAU" width="135"
+                                             height="900"  alt=""/>
+                                    <img src="https://en.bcdn.biz/images/emails_source/d64e1901-9261-472b-b130-d7aa11381bde.jpg" width="135"
+                                         height="900"  alt=""/>
+                                </div>
+                                <div class="tile">
+                                    <img src="https://i.insider.com/578cdd8688e4a725238b8896?width=750&format=jpeg&auto=webp" width="135"
+                                         height="900"  alt=""/>
+                                    <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJLtDIM7i5HY2rLJWHi7XTp_P1bdmfvEoS_g&usqp=CAU" width="135"
+                                             height="700"  alt=""/>
+                                </div>
+                                    <div class="tile">
+                                    <img src="https://cdn.shopify.com/s/files/1/0006/0420/9215/articles/endangered_animals_clothing_800_1024x.jpg?v=1585545660" width="135"
+                                         height="900"  alt=""/>
+                                    <img src="https://i.natgeofe.com/n/722fcf1a-e085-401d-9c7b-c42400493b94/snowy-owl_thumb_4x3.JPG" width="135"
+                                         height="900"  alt=""/>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="tile is-ancestor has-background-black-bis">
+                    <div class="tile is-vertical is-8">
+                        <div class="tile">
+                            <div class="tile is-parent is-vertical">
+                                <article class="tile is-child notification is-black">
+                                    <img src="https://www.vacationsmadeeasy.com/images/TheBLT/2408.jpg" width="700"
+                                         height="900"  alt=""/>
+                                </article>
+                                <article class="tile is-child notification is-black">
+                                    <img src="https://i.insider.com/50ec5d45eab8ea2c1600000f?width=1136&format=jpeg" width="700"
+                                         height="900"  alt=""/>
+                                </article>
+                            </div>
+                            <div class="tile is-parent">
+                                <article class="tile is-child notification is-black">
+                                    <img src="https://scx2.b-cdn.net/gfx/news/hires/2011/gatheringoft.jpg" width="700"
+                                         height="900"  alt=""/>
+                                    <br>
+                                    <p>This one even gave a wave.</p>
+                                    <br>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqGq_g0uwtYIOP-RVT_8NUR2-Qk6s7_h0WZQ&usqp=CAU" width="700"
+                                         height="900"  alt=""/>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="tile is-parent is-shady">
+                            <article class="tile is-child notification is-white">
+                                <p class="title">They have been Snapped</p>
+                                <p class="subtitle"><strong>A few Magnificent Animals some of our members have caught on camera.</strong></p>
+                                <div class="content">
+                                    <p>Sign up and Share YOUR PLACEMARKS TOO!!!.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="tile is-parent is-shady">
+                        <article class="tile is-child notification is-white">
+                            <div class="content">
+                                <br>
+                                <article class="message has-background-warning">
+                                  <div>
+                                <h2 class="title"> Animal Categories</h2>
+                                  </div>
+                                </article>
+                                <p class="subtitle">Animal Categories Covered</p>
+
+
+                                <div class="content">
+                                    <li>Woodland Animals</li>
+                                    <li>Forest Animals</li>
+                                    <li>Desert Animals</li>
+                                    <li>Aquatic Animals</li>
+                                    <li>Arctic Animals</li>
+                                    <li>Rare Birds</li>
+                                    <br>
+                                    <br>
+                                    <p class="subtitle">PlaceMark Regions Covered</p>
+                                    <li>South America</li>
+                                    <li>North America</li>
+                                    <li>Antarctica</li>
+                                    <li>Australia</li>
+                                    <li>Europe</li>
+                                    <li>Africa</li>
+                                    <li>Asia</li>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+        </article>
 </section>

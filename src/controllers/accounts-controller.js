@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
+import { userJsonStore } from "../models/json/user-json-store.js";
 
 export const accountsController = {
   index: {
@@ -8,6 +9,7 @@ export const accountsController = {
       return h.view("main", { title: "Welcome to PlaceMark" });
     },
   },
+
   showSignup: {
     auth: false,
     handler: function (request, h) {
@@ -35,6 +37,7 @@ export const accountsController = {
       return h.view("login-view", { title: "Login to PlaceMark" });
     },
   },
+
   login: {
     auth: false,
     validate: {
@@ -67,5 +70,15 @@ export const accountsController = {
       return { valid: false };
     }
     return { valid: true, credentials: user };
+  },
+  updateCurrentUser: {
+    handler: async function (request, h) {
+      const currentUserId = request.state.placemark.id;
+      const userId = request.payload._id;
+      console.log(request.payload);
+      let updatedUser = request.payload;
+      await db.userStore.updateUser(currentUserId, updatedUser);
+      return h.redirect("/login");
+    },
   },
 };

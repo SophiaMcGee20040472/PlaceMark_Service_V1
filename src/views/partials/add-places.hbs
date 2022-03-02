@@ -1,28 +1,40 @@
-<form class="box" action="/placemark/{{placemark._id}}/addplace" method="POST">
+<section class="has-background-success-dark">
+<form class="box has-background-warning" action="/placemark/{{placemark._id}}/addplace" method="POST">
     <label>Enter Place Details:</label>
-    <label><span style="padding-left:135px;"></span>Enter Destination:</label>
-    <label><span style="padding-left:135px;"></span>Enter Species Details:</label>
-    <label><span style="padding-left:107px;"></span>Enter Latitude:</label>
-    <label><span style="padding-left:98px;"></span>Enter Longitude:</label>
+    <label><span style="padding-left:65px;"></span>Enter Destination:</label>
+    <label><span style="padding-left:65px;"></span>Enter Species Details:</label>
+    <label><span style="padding-left:45px;"></span>Enter Latitude:</label>
+    <label><span style="padding-left:92px;"></span>Enter Longitude:</label>
     <div class="field is-horizontal">
         <div class="field-body">
             <div class="field">
+                <label>
+                    <input class="input" type="text" placeholder="Enter PlaceMark" name="name">
+                </label>
+            </div>
+            <div class="field">
+                <label>
+                    <input class="input" type="text" placeholder="Enter Destination" name="location">
+                </label>
+            </div>
+            <div class="field">
+                <label>
+                    <input class="input" type="text" placeholder="Species Spotted" name="info">
+                </label>
+            </div>
 
-                <input class="input" type="text" placeholder="Enter PlaceMark" name="name">
-            </div>
-            <div class="field">
-                <input class="input" type="text" placeholder="Enter Destination" name="location">
-            </div>
-            <div class="field">
-                <input class="input" type="text" placeholder="Species Spotted" name="info">
-            </div>
+        <div class="field">
+            <label>
+                <input class="input" type="text" placeholder="0.000" name="lat">
+            </label>
         </div>
         <div class="field">
-            <input class="input" type="text" placeholder="0.000" name="lat">
+            <label>
+                <input class="input" type="text" placeholder="0.000" name="lng">
+            </label>
         </div>
-        <div class="field">
-            <input class="input" type="text" placeholder="0.000" name="lng">
-        </div>
+    <button class="button is-info">Add PlaceMark of Interest</button>
     </div>
-    <button class="button is-primary">Add PlaceMark of Interest</button>
+    </div>
 </form>
+</section>

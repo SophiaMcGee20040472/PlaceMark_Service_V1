@@ -1,0 +1,38 @@
+{{> menu active="editUser"}}
+
+<section class="section has-background-grey-dark">
+    <article class="tile is-child notification has-background-info-dark has-text-centered has-text-white-bis">
+        <h1 class="title is-1">Edit</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/164/164600.png" width="200"
+             height="900" />
+        <img src="https://www.pngall.com/wp-content/uploads/12/Swap-PNG-Photo.png" width="200"
+             height="900" />
+        <img src="https://cdn-icons-png.flaticon.com/512/164/164600.png" width="200"
+             height="900" />
+        <h1 class="title is-1">Credentials</h1>
+    </article>
+    <article class="tile is-child notification has-background-warning has-text-white">
+        <form action="/editUser{{user._id}}" method="POST">
+            <label class="label">Name</label>
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <div class="field">
+                        <input class="input" type="text" placeholder="Enter first name" name="firstName">
+                    </div>
+                    <div class="field">
+                        <input class="input" type="text" placeholder="Enter last name" name="lastName">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email" name="email">
+            </div>
+            <div class="field">
+                <label class="label">Password</label> <input class="input" type="password" placeholder="Enter Password" name="password">
+            </div>
+            <div class="field is-grouped">
+                <button class="button is-link has-background-info-dark">Submit</button>
+            </div>
+        </form>
+    </article>
+</section>

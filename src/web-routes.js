@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { placeMarkController } from "./controllers/placemark-contoller.js";
+import { editUserController } from "./controllers/edit-user-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -10,7 +11,8 @@ export const webRoutes = [
   { method: "GET", path: "/logout", config: accountsController.logout },
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
-
+  { method: "GET", path: "/editUser", config: editUserController.index },
+  { method: "POST", path: "/editUser", config: accountsController.updateCurrentUser },
   { method: "GET", path: "/dashboard", config: dashboardController.index },
 
   { method: "POST", path: "/dashboard/addPlaceMark", config: dashboardController.addPlaceMark },
@@ -18,5 +20,5 @@ export const webRoutes = [
   { method: "GET", path: "/placemark/{id}", config: placeMarkController.index },
   { method: "POST", path: "/placemark/{id}/addplace", config: placeMarkController.addPlace },
   { method: "GET", path: "/dashboard/deleteplacemark/{id}", config: dashboardController.deletePlaceMark },
-  { method: "GET", path: "/placemark/{id}/deleteplace/{trackid}", config: placeMarkController.deletePlace },
+  { method: "GET", path: "/placemark/{id}/deleteplace/{placeid}", config: placeMarkController.deletePlace },
 ];
