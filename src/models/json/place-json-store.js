@@ -3,51 +3,46 @@ import { v4 } from "uuid";
 import { JSONFile, Low } from "lowdb";
 
 const db = new Low(new JSONFile("./src/models/json/places.json"));
-db.data = { places: [] };
+db.data = { placeMarks: [] };
 
-export const placeJsonStore = {
-  async getAllPlaces() {
+export const placeMarkJsonStore = {
+  async addPlaceMark(categoryId, placeMark) {
     await db.read();
-    return db.data.places;
-  },
-
-  async addPlace(placemarkId, place) {
-    await db.read();
-    place._id = v4();
-    place.placemarkid = placemarkId;
-    db.data.places.push(place);
+    placemark._id = v4();
+    placemark.categoryid = categoryId;
+    db.data.placemarks.push(placemark);
     await db.write();
-    return place;
+    return placemark;
   },
 
-  async getPlacesByPlaceMarkId(id) {
+  async getPlaceMarksByCategoryId(id) {
     await db.read();
     return db.data.places.filter((place) => place.placemarkid === id);
   },
 
-  async getPlaceById(id) {
+  async getPlaceMarkById(id) {
     await db.read();
-    return db.data.places.find((place) => place._id === id);
+    return db.data.placemarks.find((placemark) => placemark._id === id);
   },
 
-  async deletePlace(id) {
+  async deletePlaceMark(id) {
     await db.read();
-    const index = db.data.places.findIndex((place) => place._id === id);
-    db.data.places.splice(index, 1);
+    const index = db.data.placemarks.findIndex((placemark) => placemark._id === id);
+    db.data.placemarks.splice(index, 1);
     await db.write();
   },
 
-  async deleteAllPlaces() {
-    db.data.places = [];
+  async deleteAllPlaceMarks() {
+    db.data.placemarks = [];
     await db.write();
   },
-
-  async updatePlace(place, updatedPlace) {
-    place.name = updatedPlace.name;
-    place.location = updatedPlace.location;
-    place.info = updatedPlace.info;
-    place.lat = updatedPlace.lat;
-    place.lng = updatedPlace.lng;
+  // unused might use at some point
+  async updatePlaceMark(placemark, updatedCategory) {
+    placemark.name = updatedCategory.name;
+    placemark.location = updatedCategory.location;
+    placemark.info = updatedCategory.info;
+    placemark.lat = updatedCategory.lat;
+    placemark.lng = updatedCategory.lng;
     await db.write();
   },
 };

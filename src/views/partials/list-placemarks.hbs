@@ -1,18 +1,5 @@
-{{#each placemarks}}
+{{#each categories}}
     <div class="box box-link-hover-shadow has-background-warning-light ">
-<!--        <div class="tile">-->
-<!--        <img src="https://i.pinimg.com/originals/1f/02/bf/1f02bfbdde8a681ab0c62fff506ad165.gif"width="190"-->
-<!--             height="200" alt=" "/>-->
-<!--        <img src="https://cdn.dribbble.com/users/1842516/screenshots/4149977/lion.gif"width="190"-->
-<!--             height="100" alt=" "/>-->
-<!--        <img src="https://i.pinimg.com/originals/ab/a4/0b/aba40b329fda0eee94536c859506e254.gif"width="190"-->
-<!--             height="200" alt=" "/>-->
-<!--        <img src="https://payload.cargocollective.com/1/12/402732/14272263/image_processing20210318-3154-hwi02i.gif"width="190"-->
-<!--             height="200" alt=" "/>-->
-<!--        <img src="https://i.pinimg.com/originals/ec/18/9b/ec189bcd98392d32081f474d3f334b51.jpg"width="190"-->
-<!--             height="200" alt=" "/>-->
-<!--        </div>-->
-<!--        <br>-->
         <div class="tile">
             <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
                  height="200" alt=" "/>
@@ -29,14 +16,17 @@
         <h2 class="title has-text-black">
             {{title}}
         </h2>
-        <a href="/placemark/{{_id}}" class="button has-background-success">
+        <a href="/placemark/{{_id}}" class="button has-background-success">View<span style="padding-right:5px"></span>
       <span class="icon is-small">
         <i class="fas fa-folder-open"></i>
       </span>
         </a>
-        <a href="/dashboard/deleteplacemark/{{_id}}" class="button has-background-danger">
+    {{#if seeded}}
+        <h5>Set Category can not be deleted</h5>
+    {{else}}
+        <a href="/dashboard/deleteplacemark/{{_id}}" class="button has-background-danger"> Delete<span style="padding-right:5px"></span>
             <i class="fas fa-trash"></i>
         </a>
-
+    {{/if}}
     </div>
 {{/each}}

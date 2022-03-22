@@ -43,7 +43,7 @@
         const data = await response.json();
         const { latitude, longitude } = data;
 
-        L.marker([53.413, -7.6], {icon: myIcon}).addTo(map);
+        L.marker([53.1598, -6.2603], {icon: myIcon}).addTo(map);
         //marker.setLatLng([latitude, longitude],{icon: myIcon}).addTo(map);
 
         document.getElementById('lat').textContent = latitude;

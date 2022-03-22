@@ -1,46 +1,46 @@
 import { v4 } from "uuid";
 // eslint-disable-next-line import/no-unresolved
 import { JSONFile, Low } from "lowdb";
-import { placeJsonStore } from "./place-json-store.js";
+import { placeMarkJsonStore } from "./place-json-store.js";
 
 const db = new Low(new JSONFile("./src/models/json/placemarks.json"));
-db.data = { placemarks: [] };
+db.data = { categories: [] };
 
-export const placemarkJsonStore = {
-  async getAllPlaceMarks() {
+export const CategoryJsonStore = {
+  async getAllCategories() {
     await db.read();
-    return db.data.placemarks;
+    return db.data.categories;
   },
 
-  async addPlaceMark(placemark) {
+  async addCategory(category) {
     await db.read();
-    placemark._id = v4();
-    db.data.placemarks.push(placemark);
+    category._id = v4();
+    db.data.categories.push(category);
     await db.write();
-    return placemark;
+    return category;
   },
 
-  async getPlaceMarksById(id) {
+  async getCategoriesById(id) {
     await db.read();
-    const list = db.data.placemarks.find((placemark) => placemark._id === id);
-    list.places = await placeJsonStore.getPlacesByPlaceMarkId(list._id);
+    const list = db.data.categories.find((category) => category._id === id);
+    list.placemarks = await placeMarkJsonStore.getPlaceMarksByCategoryId(list._id);
     return list;
   },
 
-  async getUserPlaceMarks(userid) {
+  async getUserCategories(userid) {
     await db.read();
-    return db.data.placemarks.filter((placemark) => placemark.userid === userid);
+    return db.data.categories.filter((category) => category.userid === userid);
   },
 
-  async deletePlaceMarkById(id) {
+  async deleteCategoryById(id) {
     await db.read();
-    const index = db.data.placemarks.findIndex((placemark) => placemark._id === id);
-    db.data.placemarks.splice(index, 1);
+    const index = db.data.categories.findIndex((category) => category._id === id);
+    db.data.categories.splice(index, 1);
     await db.write();
   },
 
-  async deleteAllPlaceMarks() {
-    db.data.placemarks = [];
+  async deleteAllCategories() {
+    db.data.categories = [];
     await db.write();
   },
 };

@@ -1,33 +1,33 @@
 import { v4 } from "uuid";
-import { placeMemStore } from "./place-mem-store.js";
+import { placeMarkMemStore } from "./place-mem-store.js";
 
-let placemarks = [];
+let categories = [];
 
-export const placeMarkMemStore = {
-  async getAllPlaceMarks() {
-    return placemarks;
+export const CategoryMemStore = {
+  async getAllCategories() {
+    return categories;
   },
 
-  async addPlaceMark(placemark) {
-    placemark._id = v4();
-    placemarks.push(placemark);
-    return placemark;
+  async addCategories(category) {
+    category._id = v4();
+    categories.push(category);
+    return category;
   },
 
-  async getPlaceMarksById(id) {
-    const list = placemarks.find((placemark) => placemark._id === id);
-    list.places = await placeMemStore.getPlacesByPlacemarkId(list._id);
+  async getCategoryById(id) {
+    const list = categories.find((category) => category._id === id);
+    list.placemarks = await CategoryMemStore.getPlaceMarksByCategoryId(list._id);
     return list;
   },
 
-  async deletePlaceMarkById(id) {
-    const index = placemarks.findIndex((placemark) => placemark._id === id);
-    placemarks.splice(index, 1);
+  async deleteCategoryById(id) {
+    const index = categories.findIndex((category) => category._id === id);
+    categories.splice(index, 1);
   },
-  async getUserPlaceMarks(userid) {
-    return placemarks.filter((placemark) => placemark.userid === userid);
+  async getUserCategories(userid) {
+    return categories.filter((category) => category.userid === userid);
   },
-  async deleteAllPlaceMarks() {
-    placemarks = [];
+  async deleteAllCategories() {
+    categories = [];
   },
 };

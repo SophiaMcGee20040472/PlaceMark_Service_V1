@@ -1,4 +1,5 @@
 export const aboutController = {
+  // About Method to control view output.
   index: {
     handler: function (request, h) {
       const viewData = {

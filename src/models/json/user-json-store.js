@@ -44,7 +44,7 @@ export const userJsonStore = {
     db.data.users = [];
     await db.write();
   },
-
+  // method used to update users inputted details.
   async updateUser(userId, updatedUser) {
     await db.read();
     let u = db.data.users.find((user) => user._id === userId);

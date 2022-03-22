@@ -1,42 +1,50 @@
 import { db } from "../models/db.js";
-import { PlaceMarkSpec } from "../models/joi-schemas.js";
+import { CategorySpec } from "../models/joi-schemas.js";
 
 export const dashboardController = {
+  // Method to get logged in users credentials and display there categories and other related seeded data.
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const placemarks = await db.placeMarkStore.getUserPlaceMarks(loggedInUser._id);
+      const categories = await db.CategoryStore.getUserCategories(loggedInUser._id);
+      const seededCategories = await db.CategoryStore.getSeededCategories();
+      const data = categories.concat(seededCategories);
       const viewData = {
         title: "PlaceMark Dashboard",
         user: loggedInUser,
-        placemarks: placemarks,
+        categories: data,
       };
       return h.view("dashboard-view", viewData);
     },
   },
-
-  addPlaceMark: {
+  // Method to add category
+  addCategory: {
     validate: {
-      payload: PlaceMarkSpec,
+      payload: CategorySpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("dashboard-view", { title: "Add PlaceMark error", errors: error.details }).takeover().code(400);
+        return h.view("dashboard-view", { title: "Add Category error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const newPlacemark = {
+      // create new category
+      const newCategory = {
         userid: loggedInUser._id,
         title: request.payload.title,
       };
-      await db.placeMarkStore.addPlaceMark(newPlacemark);
+
+      await db.CategoryStore.addCategory(newCategory);
       return h.redirect("/dashboard");
     },
   },
-  deletePlaceMark: {
+  // Delete Categories other than the ones I don't want to delete from seeding.
+  deleteCategory: {
     handler: async function (request, h) {
-      const placemark = await db.placeMarkStore.getPlaceMarksById(request.params.id);
-      await db.placeMarkStore.deletePlaceMarkById(placemark._id);
+      const category = await db.CategoryStore.getCategoriesById(request.params.id);
+      if (category.seeded !== true) {
+        await db.CategoryStore.deleteCategoryById(category._id);
+      }
       return h.redirect("/dashboard");
     },
   },

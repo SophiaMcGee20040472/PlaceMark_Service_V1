@@ -1,0 +1,32 @@
+{{>adminDashboard active="admin"}}
+<section class="section has-background-grey-dark">
+<h2 class="title has-text-white">
+    Welcome to Administration Dashboard </h2>
+{{#each users}}
+    {{#if admin}}
+    <div class="box box-link-hover-shadow has-background-warning-light">
+    {{else}}
+    <div class="box box-link-hover-shadow has-background-info">
+        <h2 class="title has-text-white">
+    {{/if}}
+           Name: {{firstName}}
+            {{lastName}}
+            <br>
+                <br>
+           Email Address: {{email}}
+            <br>
+           User Id :  {{_id}}
+        </h2>
+      </span>
+        </a>
+        {{#if admin}}
+            <br>
+            <h1>You are an Admin</h1>
+        {{else}}
+        <a href="/admin/deleteuser/{{_id}}" class="button has-background-danger-dark has-text-white" style="padding-right: 10px" > Delete<span style="padding-right:5px"></span>
+            <i class="fas fa-trash"></i>
+        {{/if}}
+        </a>
+    </div>
+{{/each}}
+</section>

@@ -1,52 +1,53 @@
 import { v4 } from "uuid";
 
-let places = [];
+let placemarks = [];
 
-export const placeMemStore = {
-  async getAllPlaces() {
-    return places;
+export const placeMarkMemStore = {
+  async getAllPlaceMarks() {
+    return placemarks;
   },
+  // method I will work on further for map creation.
   getPlaceLocation: async function () {
     let locations = [];
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < places.length; i++) {
-      locations.push(places[i].lat, places[i].lng);
+    for (let i = 0; i < placemarks.length; i++) {
+      locations.push(placemarks[i].lat, placemarks[i].lng);
     }
     return locations;
   },
-  async addPlace(placemarkId, place) {
-    place._id = v4();
-    place.placemarkid = placemarkId;
-    places.push(place);
-    return place;
+  async addPlaceMark(categoryId, placemark) {
+    placemark._id = v4();
+    placemark.placemarkid = categoryId;
+    placemarks.push(placemark);
+    return placemark;
   },
 
-  async getPlacesByPlacemarkId(id) {
-    return places.filter((place) => place.placemarkid === id);
+  async getPlaceMarksByCategoryId(id) {
+    return placemarks.filter((placemark) => placemark.categoryid === id);
   },
 
-  async getPlaceById(id) {
-    return places.find((place) => place._id === id);
+  async getPlaceMarkById(id) {
+    return placemarks.find((placemark) => placemark._id === id);
   },
 
-  async getPlaceMarkPlaces(placemarkId) {
-    return places.filter((place) => place.placemarkid === placemarkId);
+  async getPlaceMarkCategories(categoryId) {
+    return placemarks.filter((placeMark) => placeMark.categoryid === categoryId);
   },
 
-  async deletePlace(id) {
-    const index = places.findIndex((place) => place._id === id);
-    places.splice(index, 1);
+  async deletePlaceMark(id) {
+    const index = placemarks.findIndex((placemark) => placemark._id === id);
+    placemarks.splice(index, 1);
   },
 
-  async deleteAllPlaces() {
-    places = [];
+  async deleteAllPlaceMarks() {
+    placemarks = [];
   },
 
-  async updatePlace(place, updatedPlace) {
-    place.name = updatedPlace.name;
-    place.location = updatedPlace.location;
-    place.info = updatedPlace.info;
-    place.lat = updatedPlace.lat;
-    place.lng = updatedPlace.lng;
+  async updatePlaceMark(placemark, updatedPlaceMark) {
+    placemark.name = updatedPlaceMark.name;
+    placemark.location = updatedPlaceMark.location;
+    placemark.info = updatedPlaceMark.info;
+    placemark.lat = updatedPlaceMark.lat;
+    placemark.lng = updatedPlaceMark.lng;
   },
 };

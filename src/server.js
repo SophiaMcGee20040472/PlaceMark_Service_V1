@@ -1,11 +1,13 @@
-import Hapi from "@hapi/hapi";
+import Inert from "@hapi/inert";
 import Vision from "@hapi/vision";
-import Handlebars from "handlebars";
-import path from "path";
-import { fileURLToPath } from "url";
+import Hapi from "@hapi/hapi";
 import Cookie from "@hapi/cookie";
 import dotenv from "dotenv";
+import path from "path";
 import Joi from "joi";
+import HapiSwagger from "hapi-swagger";
+import { fileURLToPath } from "url";
+import Handlebars from "handlebars";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
@@ -19,14 +21,31 @@ if (result.error) {
   console.log(result.error.message);
   process.exit(1);
 }
+const swaggerOptions = {
+  info: {
+    title: "PlaceMark API",
+    version: "0.1",
+  },
+};
 async function init() {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
   });
+  await server.register(Inert);
   await server.register(Vision);
   await server.register(Cookie);
+
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
+    },
+  ]);
   server.validator(Joi);
+
   server.views({
     engines: {
       hbs: Handlebars,
@@ -40,7 +59,7 @@ async function init() {
   });
   server.auth.strategy("session", "cookie", {
     cookie: {
-      name: "placemark",
+      name: "category",
       password: "secretpasswordnotrevealedtoanyone",
       isSecure: false,
     },
@@ -49,7 +68,7 @@ async function init() {
   });
   server.auth.default("session");
 
-  db.init();
+  db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);
   await server.start();
