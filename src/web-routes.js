@@ -22,6 +22,10 @@ export const webRoutes = [
   { method: "GET", path: "/about", config: aboutController.index },
   { method: "GET", path: "/placemark/{id}", config: CategoryController.index },
   { method: "POST", path: "/placemark/{id}/addplacemark", config: CategoryController.addPlaceMark },
+
+  { method: "GET", path: "/placemark/{id}/placemark/{placemarkid}", config: CategoryController.placeMarkDetails },
+  { method: "POST", path: "/placemark/{id}/placemark/{placemarkid}", config: CategoryController.update },
+
   { method: "GET", path: "/dashboard/deleteplacemark/{id}", config: dashboardController.deleteCategory },
   { method: "GET", path: "/placemark/{id}/deleteplacemark/{categoryid}", config: CategoryController.deletePlaceMark },
 ];

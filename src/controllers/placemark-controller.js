@@ -44,4 +44,41 @@ export const CategoryController = {
       return h.redirect(`/placemark/${category._id}`);
     },
   },
+  update: {
+    validate: {
+      payload: PlaceMarkSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("update-placemark-view", { title: "Edit placemark error", errors: error.details, placemark: request.payload }).takeover().code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const newPlaceMark = {
+        name: request.payload.name,
+        location: request.payload.location,
+        info: request.payload.info,
+        lat: request.payload.lat,
+        lng: request.payload.lng,
+      };
+      try {
+        await db.placeMarkStore.updatePlaceMark(request.params.placemarkid, newPlaceMark);
+      } catch (error) {
+        console.log(error);
+      }
+      return h.redirect(`/placemark/${request.params.id}`);
+    },
+  },
+
+  placeMarkDetails: {
+    handler: async function (request, h) {
+      const placemark = await db.placeMarkStore.getPlaceMarkById(request.params.placemarkid);
+      const category = await db.CategoryStore.getCategoriesById(request.params.id);
+      const viewData = {
+        title: "Update PlaceMark",
+        placemark: placemark,
+        category: category,
+      };
+      return h.view("update-placemark-view", viewData);
+    },
+  },
 };
