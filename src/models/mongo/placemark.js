@@ -4,6 +4,7 @@ const { Schema } = Mongoose;
 
 const CategorySchema = new Schema({
   title: String,
+  img: String,
   userid: {
     type: Schema.Types.ObjectId,
     ref: "User",

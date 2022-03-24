@@ -25,6 +25,7 @@ export const webRoutes = [
 
   { method: "GET", path: "/placemark/{id}/placemark/{placemarkid}", config: CategoryController.placeMarkDetails },
   { method: "POST", path: "/placemark/{id}/placemark/{placemarkid}", config: CategoryController.update },
+  { method: "POST", path: "/placemark/{id}/{placemarkid}/uploadimage", config: CategoryController.uploadImage },
 
   { method: "GET", path: "/dashboard/deleteplacemark/{id}", config: dashboardController.deleteCategory },
   { method: "GET", path: "/placemark/{id}/deleteplacemark/{categoryid}", config: CategoryController.deletePlaceMark },

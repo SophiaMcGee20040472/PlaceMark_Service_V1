@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 import { Category } from "./placemark.js";
 import { placeMarkMongoStore } from "./place-mongo-store.js";
+import { PlaceMark } from "./place.js";
 
 export const CategoryMongoStore = {
   async getAllCategories() {
@@ -45,5 +46,11 @@ export const CategoryMongoStore = {
 
   async deleteAllCategories() {
     await Category.deleteMany({});
+  },
+  async updatePlaceMark(updatedPlaceMark) {
+    const placemark = await PlaceMark.findOne({ _id: updatedPlaceMark._id });
+    placemark.title = updatedPlaceMark.title;
+    placemark.img = updatedPlaceMark.img;
+    await placemark.save();
   },
 };

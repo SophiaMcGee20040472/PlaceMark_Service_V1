@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { PlaceMarkSpec } from "../models/joi-schemas.js";
+import { imageStore } from "../models/image-store.js";
 
 export const CategoryController = {
   // method to display placemarks
@@ -13,6 +14,31 @@ export const CategoryController = {
       return h.view("placeMark-view", viewData);
     },
   },
+
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const placeMark = await db.placeMarkStore.getPlaceMarkById(request.params.placemarkid);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          placeMark.img = url;
+          db.placeMarkStore.addPlaceMarkImage(placeMark._id, placeMark);
+        }
+        return h.redirect(`/placemark/${request.params.id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/placemark/${request.params.id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
+    },
+  },
+
   // Method to add placeMarks
   addPlaceMark: {
     validate: {

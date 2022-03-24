@@ -10,6 +10,20 @@
     <div class="title has-text-centered has-text-white">
    Capability to pinpoint exact markers coming soon....
     </div>
+    <div class="column">
+        {{> placemark-image }}
+    </div>
     <div id="map"></div>
     {{>map}}
 </section>
+<script>
+    function imageTarget(id, name){
+        const uploadButton = document.getElementById('file-upload-form');
+        uploadButton.setAttribute('action', '/placemark/{{category._id}}/'+id+'/uploadimage');
+        const imageHeader = document.getElementById('image-form-header');
+        imageHeader.innerText = "Upload to "+name;
+    }
+    function showImage(id){
+        document.getElementById("placemark-image-"+id).style = "display:block;"
+    }
+</script>

@@ -33,8 +33,11 @@
                 <a href="/placemark/{{../category._id}}/deleteplacemark/{{_id}}" class="ui icon button has-background-danger">
                     <i class="fas fa-trash"></i>
                 </a>
+                <a onclick="imageTarget('{{_id}}', '{{name}}')" class="ui icon button has-background-info"></a>
+                <a onclick="showImage('{{_id}}')" class="ui icon button has-background-info"></a>
             </td>
         </tr>
+        <div id="placemark-image-{{_id}}" style="display:none"><img src="{{img}}"/></div>
     {{/each}}
     </tbody>
 </table>
