@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { CategoryService } from "./placemark-service.js";
-// import { decodeToken } from "../../src/api/jwt-utils.js";
+import { decodeToken } from "../../src/api/jwt-utils.js";
 import { maggie } from "../fixtures.js";
 
 suite("Authentication API tests", async () => {
