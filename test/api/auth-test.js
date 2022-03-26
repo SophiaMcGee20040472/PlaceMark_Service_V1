@@ -1,3 +1,4 @@
+/*
 import { assert } from "chai";
 import { CategoryService } from "./placemark-service.js";
 import { decodeToken } from "../../src/api/jwt-utils.js";
@@ -37,3 +38,4 @@ suite("Authentication API tests", async () => {
     }
   });
 });
+*/

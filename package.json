@@ -13,7 +13,7 @@
     "testapi": "./node_modules/mocha/bin/mocha --ui tdd test/api/**/*.js"
   },
   "engines": {
-    "node": "16.13.2"
+    "node": "16.13.0"
   },
   "repository": {
     "type": "git",

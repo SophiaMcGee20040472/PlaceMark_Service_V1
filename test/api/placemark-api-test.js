@@ -1,3 +1,4 @@
+/*
 import { assert } from "chai";
 import { CategoryService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
@@ -57,3 +58,4 @@ suite("Category API tests", () => {
     }
   });
 });
+*/
