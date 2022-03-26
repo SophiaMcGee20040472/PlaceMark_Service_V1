@@ -75,7 +75,14 @@ export const CategoryController = {
       payload: PlaceMarkSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("update-placemark-view", { title: "Edit placemark error", errors: error.details, placemark: request.payload }).takeover().code(400);
+        return h
+          .view("update-placemark-view", {
+            title: "Edit placemark error",
+            errors: error.details,
+            placemark: request.payload,
+          })
+          .takeover()
+          .code(400);
       },
     },
     handler: async function (request, h) {

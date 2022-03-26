@@ -10,6 +10,7 @@ async function seed() {
   const dbData = await seeder.seed(seedData, { dropDatabase: false, dropCollections: true });
   console.log(dbData);
 }
+
 export function connectMongo() {
   dotenv.config();
 

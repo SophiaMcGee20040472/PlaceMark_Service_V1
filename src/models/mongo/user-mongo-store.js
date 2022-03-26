@@ -40,6 +40,14 @@ export const userMongoStore = {
   },
 
   updateUser: async function (userId, updatedUser) {
-    await User.updateOne({ _id: userId }, { firstName: updatedUser.firstName, lastName: updatedUser.lastName, email: updatedUser.email, password: updatedUser.password });
+    await User.updateOne(
+      { _id: userId },
+      {
+        firstName: updatedUser.firstName,
+        lastName: updatedUser.lastName,
+        email: updatedUser.email,
+        password: updatedUser.password,
+      }
+    );
   },
 };

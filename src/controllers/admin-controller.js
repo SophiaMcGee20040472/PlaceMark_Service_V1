@@ -8,6 +8,14 @@ export const adminController = {
     handler: async function (request, h) {
       const users = await db.userStore.getAllUsers(request.params.id);
       const user = await db.userStore.getUserById(request.state.category.id);
+      const userCount = await db.userStore.getAllUsers();
+      const categoryCount = await db.CategoryStore.getAllCategories();
+      const placeMarkCount = await db.placeMarkStore.getAllPlaceMarks();
+      const analytics = {
+        userCount: userCount.length,
+        categoryCount: categoryCount.length,
+        placeMarkCount: placeMarkCount.length,
+      };
       // here is where a regular user will be redirected to dashboard
       if (user.admin !== true) {
         return h.redirect("dashboard");
@@ -15,6 +23,7 @@ export const adminController = {
       const viewData = {
         title: "Admin PlaceMarks",
         users: users,
+        analytics: analytics,
       };
       return h.view("admin", viewData);
     },

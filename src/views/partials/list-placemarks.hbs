@@ -1,32 +1,33 @@
 {{#each categories}}
-    <div class="box box-link-hover-shadow has-background-warning-light ">
-        <div class="tile">
-            <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
-                 height="200" alt=" "/>
-            <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
-                 height="200" alt=" "/>
-            <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
-                 height="200" alt=" "/>
-            <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
-                 height="200" alt=" "/>
-            <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
-                 height="200" alt=" "/>
-        </div>
-        <br>
-        <h2 class="title has-text-black">
-            {{title}}
-        </h2>
-        <a href="/placemark/{{_id}}" class="button has-background-success">View<span style="padding-right:5px"></span>
+  <div class="box box-link-hover-shadow has-background-warning-light ">
+    <div class="tile">
+      <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
+           height="200" alt=" " />
+      <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
+           height="200" alt=" " />
+      <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
+           height="200" alt=" " />
+      <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
+           height="200" alt=" " />
+      <img src="https://static.boredpanda.com/blog/wp-content/uploads/2018/10/fb_image_5bbb3bbfc2bf5.jpg" width="190"
+           height="200" alt=" " />
+    </div>
+    <br>
+    <h2 class="title has-text-black">
+      {{title}}
+    </h2>
+    <a href="/placemark/{{_id}}" class="button has-background-success">View<span style="padding-right:5px"></span>
       <span class="icon is-small">
         <i class="fas fa-folder-open"></i>
       </span>
-        </a>
+    </a>
     {{#if seeded}}
-        <h5>Set Category can not be deleted</h5>
+      <h5>Set Category can not be deleted</h5>
     {{else}}
-        <a href="/dashboard/deleteplacemark/{{_id}}" class="button has-background-danger"> Delete<span style="padding-right:5px"></span>
-            <i class="fas fa-trash"></i>
-        </a>
+      <a href="/dashboard/deleteplacemark/{{_id}}" class="button has-background-danger"> Delete<span
+        style="padding-right:5px"></span>
+        <i class="fas fa-trash"></i>
+      </a>
     {{/if}}
-    </div>
+  </div>
 {{/each}}

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as cloudinary from "cloudinary";
 import { writeFileSync } from "fs";
 import dotenv from "dotenv";

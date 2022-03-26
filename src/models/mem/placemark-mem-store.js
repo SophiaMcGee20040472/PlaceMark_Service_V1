@@ -1,5 +1,4 @@
 import { v4 } from "uuid";
-import { placeMarkMemStore } from "./place-mem-store.js";
 
 let categories = [];
 
