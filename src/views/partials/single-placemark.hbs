@@ -1,0 +1,40 @@
+
+
+  <table class="table is-fullwidth has-background-info-light">
+    <thead>
+    <tr>
+      <th>PlaceMark</th>
+      <th>Destination</th>
+      <th>Species Spotted</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Public</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each category.placemarks}}
+      <tr>
+        <td>
+          {{name}}
+        </td>
+        <td>
+          {{location}}
+        </td>
+        <td>
+          {{info}}
+        </td>
+        <td>
+          {{lat}}
+        </td>
+        <td>
+          {{lng}}
+        </td>
+        <td>
+        {{visible}}
+        </td>
+        <td>
+      <div id="placemark-image-{{_id}}" style="display:none"><img src="{{img}}"/></div>
+    {{/each}}
+    </tbody>
+  </table>
+

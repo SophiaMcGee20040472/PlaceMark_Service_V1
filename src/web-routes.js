@@ -4,6 +4,7 @@ import { aboutController } from "./controllers/about-controller.js";
 import { CategoryController } from "./controllers/placemark-controller.js";
 import { editUserController } from "./controllers/edit-user-controller.js";
 import { adminController } from "./controllers/admin-controller.js";
+import { reviewController } from "./controllers/review-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -20,6 +21,7 @@ export const webRoutes = [
   { method: "GET", path: "/admin/deleteuser/{id}", config: adminController.deleteUser },
   { method: "POST", path: "/dashboard/addCategory", config: dashboardController.addCategory },
   { method: "GET", path: "/about", config: aboutController.index },
+  { method: "GET", path: "/review", config: reviewController.index },
   { method: "GET", path: "/placemark/{id}", config: CategoryController.index },
   { method: "POST", path: "/placemark/{id}/addplacemark", config: CategoryController.addPlaceMark },
 
@@ -29,4 +31,5 @@ export const webRoutes = [
 
   { method: "GET", path: "/dashboard/deleteplacemark/{id}", config: dashboardController.deleteCategory },
   { method: "GET", path: "/placemark/{id}/deleteplacemark/{categoryid}", config: CategoryController.deletePlaceMark },
+  { method: "POST", path: "/review/addReview/placemark/{placemarkid}", config: reviewController.addReview },
 ];

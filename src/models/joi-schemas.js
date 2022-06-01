@@ -28,6 +28,7 @@ export const PlaceMarkSpec = Joi.object()
     info: Joi.string().required(),
     lat: Joi.string().required(),
     lng: Joi.string().required(),
+    visible: Joi.string().required(),
     categoryid: IdSpec,
   })
   .label("Place");

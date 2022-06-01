@@ -1,0 +1,63 @@
+{{> menu}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PlaceMark</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css" />
+</head>
+<body>
+      <div class="dropdown is-right navbar-burger is-hoverable" aria-label="menu">
+        <div class="dropdown-trigger">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<section id="home-page">
+  <main class="columns">
+    <div class="column left">
+      <div class="topp" style="text-align: center;" >
+        <article class="top-info" style="padding: 40px; margin-top: 20px; padding-left: 70px;">
+          <p class="title has-text-DANGER">NOTICEBOARD</p>
+          <p class="has-text-DANGER"><b>Analytics of our site</b></p>
+          <br>
+          <div class="container">
+          <div class="column right" style="text-align: left;">
+            <div class="card"
+            <div class="tile is-parent">
+              <article class="tile is-child notification has-background-white">
+                <h1><span style="padding-left:150px;"<b>Number of Users</b> <span style="padding-left:300px;">Category</span>
+                  <span style="padding-left:300px;">PlaceMark</span></h1><br>
+                <span style="padding-left:110px;"></span><img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" width="200"
+                     height="100" >
+                <span style="padding-left:160px;"></span><img src="https://cdn.pixabay.com/photo/2013/07/13/12/44/bear-160224__340.png" width="300"
+                                                              height="200" >
+                <span style="padding-left:110px;"></span><img src="https://png.pngtree.com/png-vector/20191207/ourmid/pngtree-beautiful-mark-place-glyph-vector-icon-png-image_2084198.jpg" width="190"
+                                                              height="100" >
+                <p class="title"><span style="padding-left:200px;"></span>{{userAnalytics.userCount}}<span style="padding-left:380px;"></span>
+                  {{userAnalytics.categoryCount}}<span style="padding-left:350px;"></span>{{userAnalytics.placeMarkCount}}</p>
+              </article>
+            </div>
+          </div>
+            <p class="title has-text-DANGER">ALL REVIEWS</p>
+          {{> list-reviews}}
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+  <a id="about-us"> <div></div> </a>
+</section>
+</body>
+</html>

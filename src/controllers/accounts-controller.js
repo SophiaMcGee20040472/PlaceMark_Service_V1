@@ -1,5 +1,8 @@
+import bcrypt from "bcrypt";
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
+
+const saltRounds = 10;
 
 export const accountsController = {
   // Method which controls the page view
@@ -34,6 +37,7 @@ export const accountsController = {
     },
     handler: async function (request, h) {
       const user = request.payload;
+      user.password = await bcrypt.hash(user.password, saltRounds);
       await db.userStore.addUser(user);
       return h.redirect("/");
     },
@@ -58,7 +62,8 @@ export const accountsController = {
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
-      if (!user || user.password !== password) {
+      const passwordsMatch = await bcrypt.compare(password, user.password); // ADDED
+      if (!user || !passwordsMatch) {
         return h.redirect("/");
       }
       /* here I used my seeded admin data which I set as a boolean. This allows me if I am an admin

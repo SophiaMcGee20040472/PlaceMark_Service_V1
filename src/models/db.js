@@ -7,12 +7,15 @@ import { placeMarkJsonStore } from "./json/place-json-store.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { CategoryMongoStore } from "./mongo/placemark-mongo-store.js";
 import { placeMarkMongoStore } from "./mongo/place-mongo-store.js";
+// eslint-disable-next-line import/named
+import { ReviewStore } from "./mongo/review-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
 export const db = {
   userStore: null,
   CategoryStore: null,
   placeMarkStore: null,
+  ReviewStore: null,
 
   init(storeType) {
     switch (storeType) {
@@ -25,6 +28,7 @@ export const db = {
         this.userStore = userMongoStore;
         this.CategoryStore = CategoryMongoStore;
         this.placeMarkStore = placeMarkMongoStore;
+        this.ReviewStore = ReviewStore;
         connectMongo();
         break;
       default:
