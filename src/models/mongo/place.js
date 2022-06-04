@@ -10,6 +10,8 @@ const placeMarkSchema = new Schema({
   lng: String,
   img: String,
   user: String,
+  foreName: String,
+  secondName: String,
   visible: Boolean,
   categoryid: {
     type: Schema.Types.ObjectId,

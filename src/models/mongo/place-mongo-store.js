@@ -1,5 +1,6 @@
 import { PlaceMark } from "./place.js";
 import { User } from "./user.js";
+import { Category } from "./placemark.js";
 
 export const placeMarkMongoStore = {
   async getAllPlaceMarks() {
@@ -13,6 +14,7 @@ export const placeMarkMongoStore = {
     const placemarkObj = await newPlaceMark.save();
     return this.getPlaceMarkById(placemarkObj._id);
   },
+
   async getPlaceMarksByCategoryId(id) {
     const placemark = await PlaceMark.find({ categoryid: id }).lean();
     return placemark;
@@ -23,6 +25,11 @@ export const placeMarkMongoStore = {
       return placemark;
     }
     return null;
+  },
+
+  async getPlaceMarkByUserIdAndCategory(userId, categoryId) {
+    const placemark = await PlaceMark.find({ user: userId, categoryid: categoryId }).lean();
+    return placemark;
   },
 
   async deletePlaceMark(id) {
@@ -45,6 +52,7 @@ export const placeMarkMongoStore = {
     placemark.lat = updatedPlaceMark.lat;
     placemark.lng = updatedPlaceMark.lng;
     placemark.img = updatedPlaceMark.img;
+    placemark.user = updatedPlaceMark.user;
     placemark.visible = updatedPlaceMark.visible;
     await placemark.save();
   },

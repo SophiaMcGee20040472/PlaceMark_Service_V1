@@ -10,11 +10,14 @@ export const CategoryController = {
       const loggedInUser = request.auth.credentials;
       const category = await db.CategoryStore.getCategoriesById(request.params.id);
       const review = await db.ReviewStore.getAllReviews();
+      const placemarks = await db.placeMarkStore.getPlaceMarkByUserIdAndCategory(loggedInUser._id, request.params.id);
+
       const viewData = {
         title: "category",
         category: category,
         review: review,
-        user: loggedInUser._id,
+        user: loggedInUser,
+        placemarks: placemarks,
       };
       return h.view("placeMark-view", viewData);
     },
@@ -72,6 +75,8 @@ export const CategoryController = {
         info: request.payload.info,
         lat: request.payload.lat,
         lng: request.payload.lng,
+        foreName: request.payload.foreName,
+        secondName: request.payload.secondName,
         visible: request.payload.visible,
       };
       try {
@@ -80,10 +85,6 @@ export const CategoryController = {
         console.log(error);
       }
 
-      // if (newPlaceMark.visible !== true) {
-      //   await db.placeMarkStore.updatePlaceMark(request.params.placemarkid, newPlaceMark);
-      //   return request.view(`/placemark/${request.params.id}`);
-      // }
       return h.redirect(`/placemark/${request.params.id}`);
     },
   },
@@ -115,6 +116,9 @@ export const CategoryController = {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const category = await db.CategoryStore.getCategoriesById(request.params.id);
+      const foreName = loggedInUser.firstName;
+      const secondName = loggedInUser.lastName;
+
       // new placeMark criteria and keys
       const newPlaceMark = {
         name: request.payload.name,
@@ -123,6 +127,8 @@ export const CategoryController = {
         lat: request.payload.lat,
         lng: request.payload.lng,
         user: loggedInUser._id,
+        foreName: foreName,
+        secondName: secondName,
         visible: true,
       };
       await db.placeMarkStore.addPlaceMark(category._id, newPlaceMark);

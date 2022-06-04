@@ -36,6 +36,14 @@ export const testUsers = [
 export const Swamp = {
   title: "Crocodile Swamp",
 };
+export const Reviews = {
+  review: "Hello Review",
+  star: "5",
+  date: "20-05-2022",
+  User: "Marge",
+  secondName: "Simpson",
+  placeMarkName: "Nile River",
+};
 
 export const FreshWater = {
   title: "Lake",

@@ -9,11 +9,10 @@
     </tr>
     </thead>
     <tbody>
-    {{#each category.placemarks}}
-      {{#if visible}}
+    {{#each placemarks}}
         <tr>
             <td>
-                {{name}}
+              {{name}}
             </td>
             <td>
                 {{location}}
@@ -42,11 +41,6 @@
         </td>
           </tr>
           <div id="placemark-image-{{_id}}" style="display:none"><img src="{{img}}"/></div>
-        {{else}}
-
-        {{/if}}
-
-    {{/each}}
-
+      {{/each}}
     </tbody>
 </table>

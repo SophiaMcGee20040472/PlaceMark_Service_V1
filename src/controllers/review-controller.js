@@ -11,17 +11,21 @@ export const reviewController = {
       const usersCount = await db.userStore.getAllUsers();
       const categoryCounts = await db.CategoryStore.getAllCategories();
       const placeMarkCounts = await db.placeMarkStore.getAllPlaceMarks();
+      const placemarks = await db.placeMarkStore.getAllPlaceMarks();
+      const reviewCount = await db.ReviewStore.getAllReviews();
 
       const userAnalytics = {
         userCount: usersCount.length,
         categoryCount: categoryCounts.length,
         placeMarkCount: placeMarkCounts.length,
+        reviewCount: reviewCount.length,
       };
 
       const viewData = {
         users: userdata,
         review: review,
         userAnalytics: userAnalytics,
+        placemarks: placemarks,
       };
       return h.view("review-view", viewData);
     },

@@ -1,5 +1,4 @@
 
-
   <table class="table is-fullwidth has-background-info-light">
     <thead>
     <tr>
@@ -12,7 +11,10 @@
     </tr>
     </thead>
     <tbody>
+    {{#ifCond this user}}
     {{#each category.placemarks}}
+      {{#if visible}}
+      {{else}}
       <tr>
         <td>
           {{name}}
@@ -33,8 +35,15 @@
         {{visible}}
         </td>
         <td>
+          <a href="/placemark/{{../category._id}}/placemark/{{_id}}" class="ui icon button has-background-success">
+            <i class="fas fa-edit has-text-white">Private</i>
+          </a>
+        </td>
+        <td>
       <div id="placemark-image-{{_id}}" style="display:none"><img src="{{img}}"/></div>
+      {{/if}}
     {{/each}}
+    {{/ifCond}}
     </tbody>
   </table>
 

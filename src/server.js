@@ -55,7 +55,14 @@ async function init() {
     },
   ]);
   server.validator(Joi);
-
+  // eslint-disable-next-line consistent-return
+  Handlebars.registerHelper("ifCond", (placeMark, user, options) => {
+    console.log(placeMark, "helllo", user);
+    if (placeMark.user === user || placeMark.visible === true) {
+      console.log("We have a match", placeMark.user === user, placeMark.visible === true);
+      return options.fn(this);
+    }
+  });
   server.views({
     engines: {
       hbs: Handlebars,

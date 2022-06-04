@@ -12,52 +12,108 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css" />
 </head>
 <body>
-      <div class="dropdown is-right navbar-burger is-hoverable" aria-label="menu">
-        <div class="dropdown-trigger">
-          <a role="button" class="navbar-burger" aria-label="menu" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="dropdown is-right navbar-burger is-hoverable" aria-label="menu">
+  <div class="dropdown-trigger">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
 <section id="home-page">
   <main class="columns">
     <div class="column left">
-      <div class="topp" style="text-align: center;" >
+      <div class="topp" style="text-align: center;">
         <article class="top-info" style="padding: 40px; margin-top: 20px; padding-left: 70px;">
           <p class="title has-text-DANGER">NOTICEBOARD</p>
           <p class="has-text-DANGER"><b>Analytics of our site</b></p>
           <br>
           <div class="container">
-          <div class="column right" style="text-align: left;">
-            <div class="card"
-            <div class="tile is-parent">
-              <article class="tile is-child notification has-background-white">
-                <h1><span style="padding-left:150px;"<b>Number of Users</b> <span style="padding-left:300px;">Category</span>
-                  <span style="padding-left:300px;">PlaceMark</span></h1><br>
-                <span style="padding-left:110px;"></span><img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" width="200"
-                     height="100" >
-                <span style="padding-left:160px;"></span><img src="https://cdn.pixabay.com/photo/2013/07/13/12/44/bear-160224__340.png" width="300"
-                                                              height="200" >
-                <span style="padding-left:110px;"></span><img src="https://png.pngtree.com/png-vector/20191207/ourmid/pngtree-beautiful-mark-place-glyph-vector-icon-png-image_2084198.jpg" width="190"
-                                                              height="100" >
-                <p class="title"><span style="padding-left:200px;"></span>{{userAnalytics.userCount}}<span style="padding-left:380px;"></span>
-                  {{userAnalytics.categoryCount}}<span style="padding-left:350px;"></span>{{userAnalytics.placeMarkCount}}</p>
-              </article>
+            <div class="column right" style="text-align: left;">
+              <div class="card"
+              <div class="tile is-parent">
+                <article class="tile is-child notification has-background-white">
+                  <h1><span style="padding-left:140px;"<b>Number of Users</b> <span
+                    style="padding-left:245px;">Category</span>
+                    <span style="padding-left:215px;">PlaceMark</span><span style="padding-left:170px;"<b>Number of
+                      Reviews</b><br></h1>
+                  <br>
+                  <span style="padding-left:110px;"></span><img
+                  src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" width="160"
+                  height="100">
+                  <span style="padding-left:160px;"></span><img
+                  src="https://cdn.pixabay.com/photo/2013/07/13/12/44/bear-160224__340.png" width="200"
+                  height="200">
+                  <span style="padding-left:110px;"></span><img
+                  src="https://png.pngtree.com/png-vector/20191207/ourmid/pngtree-beautiful-mark-place-glyph-vector-icon-png-image_2084198.jpg"
+                  width="160"
+                  height="100">
+                  <span style="padding-left:110px;"></span><img
+                  src="https://www.ubiqglobal.com/wp-content/uploads/2021/06/review3.jpg" width="160"
+                  height="100">
+                  <br>
+                  <br>
+                  <p class="title"><span style="padding-left:180px;"></span>{{userAnalytics.userCount}}<span
+                    style="padding-left:330px;"></span>
+                    {{userAnalytics.categoryCount}}<span
+                      style="padding-left:270px;"></span>{{userAnalytics.placeMarkCount}}<span
+                      style="padding-left:260px;"></span>{{userAnalytics.reviewCount}}</p>
+                </article>
+              </div>
             </div>
-          </div>
             <p class="title has-text-DANGER">ALL REVIEWS</p>
-          {{> list-reviews}}
+            {{> list-reviews}}
+            <table class="table is-fullwidth has-background-warning-light">
+              <thead>
+              <tr>
+                <th>PlaceMark</th>
+                <th>Destination</th>
+                <th>Species Spotted</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Created By</th>
+              </tr>
+              </thead>
+              <p class="title has-text-DANGER">Current Public PlaceMarks</p>
+              <tbody>
+              {{#each placemarks}}
+                {{#if visible}}
+                  <tr>
+                    <td>
+                      {{name}}
+                    </td>
+                    <td>
+                      {{location}}
+                    </td>
+                    <td>
+                      {{info}}
+                    </td>
+                    <td>
+                      {{lat}}
+                    </td>
+                    <td>
+                      {{lng}}
+                    </td>
+                {{/if}}
+                  <td>
+                    {{foreName}}
+                    {{secondName}}
+                  </td>
+              {{/each}}
+              </tbody>
+            </table>
           </div>
         </article>
       </div>
     </div>
   </main>
-  <a id="about-us"> <div></div> </a>
+  <a id="about-us">
+    <div></div>
+  </a>
 </section>
 </body>
 </html>
