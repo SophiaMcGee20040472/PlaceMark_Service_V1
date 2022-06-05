@@ -1,15 +1,15 @@
-
-<div class="container" >
-<form class="box has-background-warning-light" action="/review/addReview/placemark/{{placemark._id}}" method="POST">
-   <h2>SUBMIT YOUR PLACEMARK REVIEW</h2>
-      <div class="field">
-        <label class="label" >Enter Review </label> <input class="input" type="text" placeholder="Review" name="review">
-      </div>
-  <div class="field">
-    <label class="label" >Star Rating </label> <input class="input" type="number" min="1" max="5" placeholder="review" name="star">
-  </div>
-      <div class="field is-grouped">
-        <button class="button is-link has-background-info-dark">Submit</button>
-      </div>
-    </form>
+<div class="container">
+  <form class="box has-background-warning-light" action="/review/addReview/placemark/{{placemark._id}}" method="POST">
+    <h2>SUBMIT YOUR PLACEMARK REVIEW</h2>
+    <div class="field">
+      <label class="label">Enter Review </label> <input class="input" type="text" placeholder="Review" name="review">
+    </div>
+    <div class="field">
+      <label class="label">Star Rating </label> <input class="input" type="number" min="1" max="5" placeholder="review"
+                                                       name="star">
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-link has-background-info-dark">Submit</button>
+    </div>
+  </form>
 </div>

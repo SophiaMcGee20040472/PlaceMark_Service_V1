@@ -57,7 +57,7 @@ async function init() {
   server.validator(Joi);
   // eslint-disable-next-line consistent-return
   Handlebars.registerHelper("ifCond", (placeMark, user, options) => {
-    console.log(placeMark, "helllo", user);
+    console.log(placeMark, "hello", user);
     if (placeMark.user === user || placeMark.visible === true) {
       console.log("We have a match", placeMark.user === user, placeMark.visible === true);
       return options.fn(this);

@@ -1,55 +1,55 @@
 {{>adminDashboard active="admin"}}
 <section class="section has-background-grey-dark">
-<h2 class="title has-text-white">
-  <span style="padding-left:250px;"></span> Welcome to Administration Dashboard
-  <br>
-  <br>
-  <span style="padding-left:45px;"></span><img src="https://www.buythelogo.com/wp-content/uploads/2019/03/Leaf-tree-abstract-forest-logo-vector.jpg" width="250"
-       height="900">  <span style="padding-left:90px;"></span>
-  <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" width="250">
-
-  <span style="padding-left:145px;"></span>
-  <img src="https://live.staticflickr.com/8202/8160624462_8d1658a9af_z.jpg" width="250"
-       height="900">
-<br>
-  <br>
-  <div><span style="padding-left:45px;"></span>  No. of Categories<span style="padding-left:125px;"></span>  No. of Users<span style="padding-left:170px;"></span>  No. of Placemarks</div>
-  <br>
-  <div>
-    <span style="padding-left:120px;"></span> {{analytics.categoryCount}}<span style="padding-left:370px;"></span>{{analytics.userCount}}<span style="padding-left:370px;"></span>{{analytics.placeMarkCount}}
-  </div>
-  <br>
-     </h2>
-{{#each users}}
+  <h2 class="title has-text-white">
+    <span style="padding-left:250px;"></span> Welcome to Administration Dashboard
+    <br>
+    <br>
+    <span style="padding-left:45px;"></span><img
+    src="https://www.buythelogo.com/wp-content/uploads/2019/03/Leaf-tree-abstract-forest-logo-vector.jpg" width="250"
+    height="900"> <span style="padding-left:90px;"></span>
+    <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84587/preview.svg" width="250">
+    <span style="padding-left:145px;"></span>
+    <img src="https://live.staticflickr.com/8202/8160624462_8d1658a9af_z.jpg" width="250" height="900">
+    <br>
+    <br>
+    <div><span style="padding-left:45px;"></span> No. of Categories<span style="padding-left:125px;"></span> No. of
+      Users<span style="padding-left:170px;"></span> No. of Placemarks
+    </div>
+    <br>
+    <div>
+      <span style="padding-left:120px;"></span> {{analytics.categoryCount}}<span
+      style="padding-left:370px;"></span>{{analytics.userCount}}<span
+      style="padding-left:370px;"></span>{{analytics.placeMarkCount}}
+    </div>
+    <br>
+  </h2>
+  {{#each users}}
     {{#if admin}}0
     <div class="box box-link-hover-shadow has-background-warning-light">
     {{else}}
     <div class="box box-link-hover-shadow has-background-success-dark">
-        <h2 class="title has-text-white">
+    <h2 class="title has-text-white">
     {{/if}}
-           Name: {{firstName}}
-            {{lastName}}
-            <br>
-                <br>
-           Email Address: {{email}}
-            <br>
-           User Id :  {{_id}}
-        </h2>
-      </span>
-        </a>
-        {{#if admin}}
-            <br>
-            <h1>You are an Admin</h1>
-        {{else}}
-        <a href="/admin/deleteuser/{{_id}}" class="button has-background-danger-dark has-text-white" style="padding-right: 10px" > Delete<span style="padding-right:5px"></span>
-            <i class="fas fa-trash"></i>
-        {{/if}}
-        </a>
-
-    </div>
-{{/each}}
-  <h2>
-
+    Name: {{firstName}}
+    {{lastName}}
+    <br>
+    <br>
+    Email Address: {{email}}
+    <br>
+    User Id :  {{_id}}
   </h2>
+    </span>
+    </a>
+    {{#if admin}}
+      <br>
+      <h1>You are an Admin</h1>
+    {{else}}
+    <a href="/admin/deleteuser/{{_id}}" class="button has-background-danger-dark has-text-white"
+       style="padding-right: 10px"> Delete<span style="padding-right:5px"></span>
+      <i class="fas fa-trash"></i>
+    {{/if}}
+  </a>
+  </div>
+  {{/each}}
 </div>
 </section>

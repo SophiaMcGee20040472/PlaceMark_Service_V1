@@ -1,49 +1,39 @@
-
-  <table class="table is-fullwidth has-background-info-light">
+<table class="table is-fullwidth has-background-info-light">
     <thead>
     <tr>
-      <th>PlaceMark</th>
-      <th>Destination</th>
-      <th>Species Spotted</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Public</th>
+        <th>PlaceMark</th>
+        <th>Destination</th>
+        <th>Species Spotted</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Public</th>
     </tr>
     </thead>
     <tbody>
-    {{#ifCond this user}}
-    {{#each category.placemarks}}
-      {{#if visible}}
-      {{else}}
-      <tr>
+{{#unless placemark.visible}}
+
+    <tr>
         <td>
-          {{name}}
+            {{placemark.name}}
         </td>
         <td>
-          {{location}}
+            {{placmark.location}}
         </td>
         <td>
-          {{info}}
+            {{placemark.info}}
         </td>
         <td>
-          {{lat}}
+            {{placemark.lat}}
         </td>
         <td>
-          {{lng}}
+            {{placemark.lng}}
         </td>
         <td>
-        {{visible}}
+            {{placemark.visible}}
         </td>
-        <td>
-          <a href="/placemark/{{../category._id}}/placemark/{{_id}}" class="ui icon button has-background-success">
-            <i class="fas fa-edit has-text-white">Private</i>
-          </a>
-        </td>
-        <td>
-      <div id="placemark-image-{{_id}}" style="display:none"><img src="{{img}}"/></div>
-      {{/if}}
-    {{/each}}
-    {{/ifCond}}
+    <tr>
+{{/unless}}
     </tbody>
-  </table>
+</table>
+
 

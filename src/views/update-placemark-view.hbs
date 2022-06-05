@@ -55,19 +55,24 @@
             <input class="input" type="number" step="0.0000001" maxlength="10" min="-180.0000000" max="180.0000000"
                    name="lng" value="{{placemark.lng}}" />
           </div>
+            <div class="field" style="display: none">
+                <label class="label">user</label>
+                <input class="input" type="text"
+                       name="user" value="{{placemark.user}}" />
+            </div>
         </div>
       </div>
       <div class="field">
-        <label for="placeMark">Share/Make Private:</label>
+        <label for="placeMark">Shared {{placemark.visible}}</label>
         <select name="visible" id="placeMark">
-          <option value="true">Share</option>
-          <option value="false">Make Private</option>
+          <option value="true">On</option>
+          <option value="false">Off</option>
         </select>
       </div>
-      <p> If you choose to Share instead of have your PlaceMark as private this will be posted to the noticeboard for
-        all logged-In Users to see.</p>
       <br>
       <button class="button is-link">Update PlaceMark/Preferences</button>
+      <p> If you choose to Share instead of have your PlaceMark as private this will be posted to the noticeboard for
+        all logged-In Users to see.</p>
     </form>
   </section>
 </section>

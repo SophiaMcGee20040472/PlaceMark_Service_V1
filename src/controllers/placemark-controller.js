@@ -19,6 +19,7 @@ export const CategoryController = {
         user: loggedInUser,
         placemarks: placemarks,
       };
+
       return h.view("placeMark-view", viewData);
     },
   },
@@ -78,6 +79,7 @@ export const CategoryController = {
         foreName: request.payload.foreName,
         secondName: request.payload.secondName,
         visible: request.payload.visible,
+        user:request.payload.user
       };
       try {
         await db.placeMarkStore.updatePlaceMark(request.params.placemarkid, newPlaceMark);
@@ -129,7 +131,7 @@ export const CategoryController = {
         user: loggedInUser._id,
         foreName: foreName,
         secondName: secondName,
-        visible: true,
+        visible: false,
       };
       await db.placeMarkStore.addPlaceMark(category._id, newPlaceMark);
       return h.redirect(`/placemark/${category._id}`);

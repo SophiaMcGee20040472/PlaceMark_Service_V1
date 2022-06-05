@@ -1,6 +1,4 @@
 import { PlaceMark } from "./place.js";
-import { User } from "./user.js";
-import { Category } from "./placemark.js";
 
 export const placeMarkMongoStore = {
   async getAllPlaceMarks() {
@@ -28,6 +26,8 @@ export const placeMarkMongoStore = {
   },
 
   async getPlaceMarkByUserIdAndCategory(userId, categoryId) {
+    console.log("from model");
+    console.log({ userId, categoryId });
     const placemark = await PlaceMark.find({ user: userId, categoryid: categoryId }).lean();
     return placemark;
   },

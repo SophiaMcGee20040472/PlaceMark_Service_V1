@@ -1,17 +1,17 @@
 {{> menu active="dashboard"}}
 
 <section class="section has-background-grey-dark">
-    <article class="tile is-child notification has-background-info-dark has-text-warning">
+  <article class="tile is-child notification has-background-info-dark has-text-warning">
     {{#user}}
-        <h5 class="title has-text-warning"><i>Welcome To PlaceMark</i> : {{firstName}} {{lastName}}</h5>
+      <h5 class="title has-text-warning"><i>Welcome To PlaceMark</i> : {{firstName}} {{lastName}}</h5>
     {{/user}}
     <p>Your Current Location :</p>
-    <p>latitude  : <span id="latitude"></span>&deg;<br></p>
+    <p>latitude : <span id="latitude"></span>&deg;<br></p>
     <p>longitude : <span id="longitude"></span>&deg;<br></p>
     {{>geolocation}}
     {{> add-placemark}}
     {{> list-placemarks}}
-        <div class="column">
-        </div>
-    </article>
+    <div class="column">
+    </div>
+  </article>
 </section>

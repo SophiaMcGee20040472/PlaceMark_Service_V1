@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    {{#each placemarks}}
+     {{#each placemarks}}
         <tr>
             <td>
               {{name}}
@@ -29,6 +29,7 @@
           <td>
           </td>
         <td>
+          <p>  Edit Privacy & Placemark</p>
           <a href="/placemark/{{../category._id}}/placemark/{{_id}}" class="ui icon button has-background-success">
             <i class="fas fa-edit has-text-white"></i>
           </a>
@@ -37,10 +38,14 @@
             </a>
           <a onclick="imageTarget('{{_id}}', '{{name}}')" class="ui icon button has-background-grey">Load<i class="fa-solid fa-arrow-up-from-bracket"></i></a>
           <a onclick="showImage('{{_id}}')" class="ui icon button has-background-info">View</a>
-          <p>Edit Privacy & Placemark</p>
+         <br>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg2u3CV7wvoNj9sWwDn2IhXFbLjveeIweMo1BdbuRn9VcPinRhMN61yQAKOHbFedo0z6A&usqp=CAU" width="20"
+               height="20" /><br>
+          <p>Leave Review</p>
         </td>
           </tr>
           <div id="placemark-image-{{_id}}" style="display:none"><img src="{{img}}"/></div>
-      {{/each}}
+    {{/each}}
+
     </tbody>
 </table>

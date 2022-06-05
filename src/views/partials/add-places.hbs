@@ -1,10 +1,10 @@
 <section class="has-background-success-dark">
   <form class="box has-background-warning" action="/placemark/{{category._id}}/addplacemark" method="POST">
     <label>Enter Place Details:</label>
-    <label><span style="padding-left:30px;"></span>Enter Destination:</label>
-    <label><span style="padding-left:32px;"></span>Enter Species Details:</label>
-    <label><span style="padding-left:15px;"></span>Enter Latitude:</label>
-    <label><span style="padding-left:30px;"></span>Enter Longitude:</label>
+    <label><span style="padding-left:10px;"></span>Enter Destination:</label>
+    <label><span style="padding-left:10px;"></span>Enter Species Details:</label>
+    <label><span style="padding-left:10px;"></span>Enter Latitude:</label>
+    <label><span style="padding-left:10px;"></span>Enter Longitude:</label>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -35,13 +35,14 @@
                    placeholder="0.000" name="lng">
           </label>
         </div>
+        <br>
         <button class="button is-info">Add PlaceMark of Interest</button>
       </div>
       <span style="padding-left:60px;"></span>
-      <div class="field">
+      <div class="field" style="display: none">
         <label for="placeMark">Current Privacy</label>
         <select name="visible" id="placeMark">
-          <option value="true">public</option>
+          <option value="false">Not Shared</option>
         </select>
         <div class="field is-grouped">
         </div>
